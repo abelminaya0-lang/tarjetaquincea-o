@@ -227,7 +227,7 @@ const App: React.FC = () => {
                 (Frente al colegio José Faustino Sánchez Carrión)
               </p>
               <a 
-                href="https://www.google.com/maps/place/Recepciones+Alex/@-11.8301494,-77.2750684,12z/data=!4m7!3m6!1s0x9105d54c4546d755:0xc447afe9d3b0a476!8m2!3d-11.8301494!4d-77.1226331" 
+                href="https://maps.app.goo.gl/k9bhK32sFGHDk6w36" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-12 py-5 rounded-2xl bg-slate-900 text-white font-bold hover:bg-steel-blue transition-all shadow-xl"
