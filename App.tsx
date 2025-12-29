@@ -176,7 +176,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Parents Section - Padres Arriba, Padrinos Abajo */}
+      {/* Parents Section */}
       <section className="py-24 bg-white/50 backdrop-blur-sm px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center mb-12">
