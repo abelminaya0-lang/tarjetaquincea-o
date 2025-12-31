@@ -8,11 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
         .font-elegant { font-family: 'Italianno', cursive; }
         .font-serif-title { font-family: 'Playfair Display', serif; }
         .font-body { font-family: 'Quicksand', sans-serif; }
+        .font-royal { font-family: 'Pinyon Script', cursive; }
         
         @keyframes glitter {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
@@ -27,13 +28,13 @@
             100% { transform: translate(110vw, 110vh) rotate(720deg); opacity: 0; }
         }
 
-        @keyframes princess-glow {
-            0%, 100% { filter: drop-shadow(0 0 5px #87CEEB) drop-shadow(0 0 10px #87CEEB); }
-            50% { filter: drop-shadow(0 0 15px #4682B4) drop-shadow(0 0 25px #4682B4); }
+        .princess-glow-static {
+            filter: drop-shadow(0 0 15px rgba(135, 206, 235, 0.4));
         }
 
-        .princess-glow {
-            animation: princess-glow 3s infinite alternate;
+        .name-static {
+            color: #4682B4; /* Steel Blue */
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 4px 4px 15px rgba(70, 130, 180, 0.2);
         }
 
         .rose-petal {
@@ -54,13 +55,6 @@
             box-shadow: 0 0 8px white;
         }
 
-        .static-name {
-            color: #4682B4; /* Steel Blue */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05), 0 0 30px rgba(135, 206, 235, 0.2);
-            position: relative;
-            z-index: 20;
-        }
-
         .bg-steel-blue { background-color: #4682B4; }
         .text-steel-blue { color: #4682B4; }
         .bg-sky-blue { background-color: #87CEEB; }
@@ -75,13 +69,30 @@
         ::-webkit-scrollbar-thumb { background: #4682B4; border-radius: 10px; }
 
         .fade-in-up {
-            animation: fadeInUp 1s ease-out forwards;
+            animation: fadeInUp 1.5s ease-out forwards;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .royal-frame {
+            border: 2px solid #4682B4;
+            padding: 2rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .royal-frame::before, .royal-frame::after {
+            content: '✧';
+            position: absolute;
+            color: #4682B4;
+            font-size: 1.5rem;
+        }
+        .royal-frame::before { top: -1rem; left: -1rem; }
+        .royal-frame::after { bottom: -1rem; right: -1rem; }
     </style>
     <script type="importmap">
 {
@@ -90,9 +101,8 @@
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
     "lucide-react": "https://esm.sh/lucide-react@0.463.0",
-    "@google/genai": "https://esm.sh/@google/genai@0.2.1",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>

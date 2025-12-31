@@ -7,11 +7,11 @@ import {
   Music, 
   Sparkles, 
   ExternalLink, 
-  Star
+  Star,
+  Crown
 } from 'lucide-react';
 import { CountdownTime } from './types';
 
-// Componente para los pétalos de rosa animados con efecto de viento
 const RosePetals = () => {
   const petals = useMemo(() => {
     return Array.from({ length: 25 }).map((_, i) => ({
@@ -21,7 +21,7 @@ const RosePetals = () => {
       size: Math.random() * 20 + 15,
       duration: `${Math.random() * 8 + 7}s`,
       delay: `${Math.random() * 10}s`,
-      color: i % 2 === 0 ? '#E0F2FE' : '#BAE6FD', // Tonos celestes y blancos
+      color: i % 2 === 0 ? '#E0F2FE' : '#BAE6FD',
       rotation: Math.random() * 360
     }));
   }, []);
@@ -54,17 +54,6 @@ const RosePetals = () => {
 const App: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<CountdownTime>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   
-  const nameSparkles = useMemo(() => {
-    return Array.from({ length: 40 }).map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 140 - 20}%`,
-      left: `${Math.random() * 140 - 20}%`,
-      size: Math.random() * 30 + 10,
-      delay: `${Math.random() * 5}s`,
-      duration: `${Math.random() * 2 + 1}s`
-    }));
-  }, []);
-
   const targetDate = new Date('2026-01-24T20:00:00').getTime();
 
   useEffect(() => {
@@ -103,13 +92,13 @@ const App: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-sky-blue/30 via-white/80 to-slate-50"></div>
         </div>
         
-        <div className="relative z-10 max-w-5xl w-full">
+        <div className="relative z-10 max-w-5xl w-full flex flex-col items-center">
           {/* MÚSICA */}
           <div className="mb-12 flex flex-col items-center">
-            <p className="text-steel-blue font-serif-title italic mb-4 text-xl flex items-center gap-2 princess-glow">
+            <p className="text-steel-blue font-serif-title italic mb-4 text-xl flex items-center gap-2">
               <Music size={20} className="animate-pulse" /> Escucha mi canción favorita <Music size={20} className="animate-pulse" />
             </p>
-            <div className="bg-white/60 backdrop-blur-3xl p-4 rounded-[3rem] shadow-[0_0_80px_rgba(135,206,235,0.4)] border border-white/80 group">
+            <div className="bg-white/60 backdrop-blur-3xl p-4 rounded-[3rem] shadow-[0_0_80px_rgba(135,206,235,0.4)] border border-white/80">
               <div className="relative z-10">
                 <iframe 
                   width="300" 
@@ -123,51 +112,37 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <p className="font-elegant text-5xl md:text-6xl text-steel-blue mb-2 flex items-center justify-center gap-4">
-            <Sparkles className="text-sky-blue animate-pulse" size={28} />
-            Mis Quinceaños
-            <Sparkles className="text-sky-blue animate-pulse" size={28} />
-          </p>
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <Crown size={48} className="text-steel-blue mb-2" />
+            <p className="font-elegant text-5xl md:text-6xl text-steel-blue">
+              Mis Quinceaños
+            </p>
+          </div>
           
-          <div className="relative inline-block mb-10 px-16 py-10">
-            <div className="absolute inset-0 bg-sky-blue/20 blur-[120px] rounded-full animate-pulse"></div>
+          {/* NOMBRE LITSA - ESTÁTICO Y ENMARCADO */}
+          <div className="relative mb-16 px-8 py-12 md:px-24 md:py-20 group">
+            {/* Marco decorativo "cuadrado" real */}
+            <div className="absolute inset-0 border-[3px] border-steel-blue/30 rounded-[3rem] transform rotate-1 scale-[1.02]"></div>
+            <div className="absolute inset-0 border-[1px] border-sky-blue/50 rounded-[3rem]"></div>
             
-            {nameSparkles.map(s => (
-              <Star 
-                key={s.id}
-                size={s.size}
-                className="absolute text-white fill-white blur-[1.5px] animate-pulse pointer-events-none"
-                style={{
-                  top: s.top,
-                  left: s.left,
-                  animationDelay: s.delay,
-                  animationDuration: s.duration,
-                  opacity: 0.6
-                }}
-              />
-            ))}
-
-            <h1 className="font-serif-title text-9xl md:text-[15rem] static-name leading-none tracking-tighter italic relative z-20 select-none princess-glow">
+            <h1 className="font-royal text-[8rem] md:text-[18rem] leading-none name-static princess-glow-static relative z-20 select-none px-12">
               Litsa
             </h1>
-            
-            <div className="absolute -top-10 -right-10 animate-bounce">
-              <Sparkles className="text-sky-blue" size={64} />
-            </div>
-            <div className="absolute -bottom-10 -left-10 animate-bounce" style={{animationDelay: '1s'}}>
-              <Sparkles className="text-steel-blue" size={64} />
-            </div>
+
+            {/* Decoraciones en las esquinas */}
+            <Sparkles className="absolute -top-6 -left-6 text-sky-blue" size={40} />
+            <Sparkles className="absolute -bottom-6 -right-6 text-steel-blue" size={40} />
           </div>
           
           <div className="relative mb-14">
-            <div className="h-[2px] w-96 bg-gradient-to-r from-transparent via-steel-blue/30 to-transparent mx-auto rounded-full"></div>
+            <div className="h-[2px] w-64 bg-gradient-to-r from-transparent via-steel-blue/40 to-transparent mx-auto rounded-full"></div>
           </div>
           
-          <p className="text-2xl md:text-4xl text-slate-800 font-serif-title font-medium tracking-[0.2em] mb-12 bg-white/40 backdrop-blur-md inline-block px-12 py-5 rounded-full border border-white/60 shadow-lg">
+          <p className="text-2xl md:text-3xl text-slate-700 font-serif-title tracking-[0.2em] mb-12 bg-white/50 backdrop-blur-sm inline-block px-12 py-5 rounded-full border border-white/80 shadow-md">
             Sábado 24 de Enero del 2026
           </p>
           
-          <div className="flex justify-center gap-4 md:gap-10 mb-20">
+          <div className="flex justify-center gap-6 md:gap-12 mb-20">
             <TimeUnit value={timeLeft.days} label="Días" />
             <TimeUnit value={timeLeft.hours} label="Horas" />
             <TimeUnit value={timeLeft.minutes} label="Min" />
@@ -176,7 +151,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Parents Section - Padres Arriba, Padrinos Abajo */}
+      {/* Parents Section */}
       <section className="py-24 bg-white/50 backdrop-blur-sm px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center mb-12">
@@ -185,8 +160,7 @@ const App: React.FC = () => {
           <h2 className="font-serif-title text-4xl md:text-5xl text-slate-800 mb-20">Con la bendición de Dios y mis padres</h2>
           
           <div className="flex flex-col gap-12 items-center">
-            {/* Padres Arriba */}
-            <div className="w-full max-w-2xl p-14 bg-white/80 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:scale-105 transition-all">
+            <div className="w-full max-w-2xl p-14 bg-white/90 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:scale-[1.02] transition-all">
               <h3 className="text-steel-blue font-bold uppercase tracking-[0.3em] text-[11px] mb-8">Mis Amados Padres</h3>
               <div className="flex flex-col items-center gap-2">
                 <p className="text-3xl text-slate-800 font-serif-title">Maribel Francisco C.</p>
@@ -195,8 +169,7 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Padrinos Abajo */}
-            <div className="w-full max-w-2xl p-14 bg-white/80 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:scale-105 transition-all">
+            <div className="w-full max-w-2xl p-14 bg-white/90 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:scale-[1.02] transition-all">
               <h3 className="text-sky-blue font-bold uppercase tracking-[0.3em] text-[11px] mb-8">Mis Queridos Padrinos</h3>
               <div className="flex flex-col items-center gap-2">
                 <p className="text-3xl text-slate-800 font-serif-title">Erika Francisco C.</p>
@@ -214,7 +187,7 @@ const App: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="font-serif-title text-5xl text-slate-800">Ubicación</h2>
           </div>
-          <div className="bg-white rounded-[5rem] overflow-hidden shadow-2xl border-8 border-white group">
+          <div className="bg-white rounded-[5rem] overflow-hidden shadow-2xl border-8 border-white">
             <div className="bg-steel-blue h-64 flex items-center justify-center relative overflow-hidden">
                <MapPin className="text-white animate-bounce z-10" size={72} />
                <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
@@ -242,7 +215,7 @@ const App: React.FC = () => {
       <section className="py-24 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="p-20 bg-white rounded-[5rem] shadow-2xl relative border-b-[12px] border-steel-blue">
-            <Sparkles className="text-steel-blue mx-auto mb-10" size={56} />
+            <Crown className="text-steel-blue mx-auto mb-10" size={56} />
             <h3 className="font-serif-title text-5xl mb-8 text-slate-800">Código de Vestimenta</h3>
             <p className="text-steel-blue font-bold uppercase text-3xl tracking-[0.2em] mb-8">Sport Elegante</p>
             <p className="text-slate-500 italic text-xl leading-relaxed max-w-md mx-auto">
@@ -268,17 +241,16 @@ const App: React.FC = () => {
             href="https://docs.google.com/forms/d/e/1FAIpQLSerNkYAQmA-mxiAgvo7F95yGoOtxNv7Vvd8_ol1bSqaYklrew/viewform" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center px-20 py-8 font-bold text-slate-900 bg-sky-blue rounded-[2.5rem] hover:bg-white hover:scale-105 transition-all shadow-[0_0_50px_rgba(135,206,235,0.4)] text-2xl"
+            className="group inline-flex items-center justify-center px-20 py-8 font-bold text-slate-900 bg-sky-blue rounded-[2.5rem] hover:bg-white hover:scale-105 transition-all shadow-lg text-2xl"
           >
-            ¡Confirmar aquí! <ExternalLink size={28} className="ml-4 group-hover:translate-x-1 transition-transform" />
+            ¡Confirmar aquí! <ExternalLink size={28} className="ml-4" />
           </a>
-          <p className="mt-20 text-[10px] opacity-30 uppercase tracking-[0.8em]">Por favor confirmar antes del 15 de enero</p>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-24 bg-white text-center px-4 relative">
-        <h2 className="font-elegant text-9xl text-slate-800 mb-4 princess-glow">Litsa</h2>
+        <h2 className="font-royal text-[6rem] text-slate-800 mb-4">Litsa</h2>
         <p className="text-xs uppercase tracking-[1em] text-slate-400 mb-16">Mis Quinceaños • 2026</p>
         <div className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold mb-4">
            Litsa Janice Cavero Francisco
@@ -293,7 +265,7 @@ const App: React.FC = () => {
 
 const TimeUnit: React.FC<{ value: number; label: string }> = ({ value, label }) => (
   <div className="flex flex-col items-center">
-    <div className="w-24 h-24 md:w-36 md:h-36 bg-white rounded-[3rem] flex items-center justify-center shadow-xl border-2 border-slate-50 mb-5 group hover:rotate-2 transition-transform">
+    <div className="w-24 h-24 md:w-36 md:h-36 bg-white rounded-[3rem] flex items-center justify-center shadow-lg border-2 border-slate-50 mb-5">
       <span className="text-4xl md:text-6xl font-serif-title text-slate-800 font-bold">{String(value).padStart(2, '0')}</span>
     </div>
     <span className="text-[11px] uppercase tracking-[0.4em] text-steel-blue font-bold">{label}</span>
