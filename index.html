@@ -27,6 +27,15 @@
             100% { transform: translate(110vw, 110vh) rotate(720deg); opacity: 0; }
         }
 
+        @keyframes princess-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px #87CEEB) drop-shadow(0 0 10px #87CEEB); }
+            50% { filter: drop-shadow(0 0 15px #4682B4) drop-shadow(0 0 25px #4682B4); }
+        }
+
+        .princess-glow {
+            animation: princess-glow 3s infinite alternate;
+        }
+
         .rose-petal {
             position: fixed;
             pointer-events: none;
@@ -82,8 +91,8 @@
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
     "lucide-react": "https://esm.sh/lucide-react@0.463.0",
     "@google/genai": "https://esm.sh/@google/genai@0.2.1",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>

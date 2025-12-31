@@ -106,7 +106,7 @@ const App: React.FC = () => {
         <div className="relative z-10 max-w-5xl w-full">
           {/* MÚSICA */}
           <div className="mb-12 flex flex-col items-center">
-            <p className="text-steel-blue font-serif-title italic mb-4 text-xl flex items-center gap-2">
+            <p className="text-steel-blue font-serif-title italic mb-4 text-xl flex items-center gap-2 princess-glow">
               <Music size={20} className="animate-pulse" /> Escucha mi canción favorita <Music size={20} className="animate-pulse" />
             </p>
             <div className="bg-white/60 backdrop-blur-3xl p-4 rounded-[3rem] shadow-[0_0_80px_rgba(135,206,235,0.4)] border border-white/80 group">
@@ -147,7 +147,7 @@ const App: React.FC = () => {
               />
             ))}
 
-            <h1 className="font-serif-title text-9xl md:text-[15rem] static-name leading-none tracking-tighter italic relative z-20 select-none">
+            <h1 className="font-serif-title text-9xl md:text-[15rem] static-name leading-none tracking-tighter italic relative z-20 select-none princess-glow">
               Litsa
             </h1>
             
@@ -176,7 +176,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Parents Section */}
+      {/* Parents Section - Padres Arriba, Padrinos Abajo */}
       <section className="py-24 bg-white/50 backdrop-blur-sm px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center mb-12">
@@ -186,7 +186,7 @@ const App: React.FC = () => {
           
           <div className="flex flex-col gap-12 items-center">
             {/* Padres Arriba */}
-            <div className="w-full max-w-2xl p-14 bg-white/80 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:-translate-y-2 transition-all">
+            <div className="w-full max-w-2xl p-14 bg-white/80 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:scale-105 transition-all">
               <h3 className="text-steel-blue font-bold uppercase tracking-[0.3em] text-[11px] mb-8">Mis Amados Padres</h3>
               <div className="flex flex-col items-center gap-2">
                 <p className="text-3xl text-slate-800 font-serif-title">Maribel Francisco C.</p>
@@ -196,7 +196,7 @@ const App: React.FC = () => {
             </div>
 
             {/* Padrinos Abajo */}
-            <div className="w-full max-w-2xl p-14 bg-white/80 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:-translate-y-2 transition-all">
+            <div className="w-full max-w-2xl p-14 bg-white/80 rounded-[4rem] shadow-xl border border-sky-blue/20 transform hover:scale-105 transition-all">
               <h3 className="text-sky-blue font-bold uppercase tracking-[0.3em] text-[11px] mb-8">Mis Queridos Padrinos</h3>
               <div className="flex flex-col items-center gap-2">
                 <p className="text-3xl text-slate-800 font-serif-title">Erika Francisco C.</p>
@@ -278,7 +278,7 @@ const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="py-24 bg-white text-center px-4 relative">
-        <h2 className="font-elegant text-9xl text-slate-800 mb-4">Litsa</h2>
+        <h2 className="font-elegant text-9xl text-slate-800 mb-4 princess-glow">Litsa</h2>
         <p className="text-xs uppercase tracking-[1em] text-slate-400 mb-16">Mis Quinceaños • 2026</p>
         <div className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold mb-4">
            Litsa Janice Cavero Francisco
